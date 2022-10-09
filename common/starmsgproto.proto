@@ -1,0 +1,35 @@
+/*
+
+StarMsgProto
+
+*/
+
+
+syntax = "proto3";
+
+package StarMsgProto;
+
+enum MsgType //枚举消息类型
+{
+    BROADCAST = 0;
+    REQUEST = 1;
+    RESPONSE = 2;
+};
+
+message  StarCmdMsg {
+    int32 magic = 1;
+    string version = 2;
+    int32 msgId = 3;//需要一个消息id生成器
+    int32 cmdMsg = 4;
+    MsgType msgType = 5;//请求、响应、广播
+    int32 serviceId = 6;
+    int32 retCode = 7;
+    string strClientIP = 8;
+    int32 nClientPort = 9;
+    string strServerIP = 10;
+    int32 nServerPort = 11;
+    int32 msgHeaderLength = 12;
+    int32 msgBodyLength = 13;
+    string strBody = 14;
+
+}
